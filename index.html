@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" src="./script.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body class="body">
+
+        <div id="welcome" class="windows">
+            <p class="close-button" id="welcomeclose">Close</p>
+            
+            <p id="welcomeheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 8px;">
+        
+            </p>
+    
+        
+    
+            <h1>Welcome to ShravanOS</h1>
+            <p>Learn about the random person named Shravan!</p>
+        </div>
+        <div style="display:flex;justify-content: space-between; backdrop-filter: blur(10px);">
+            <p>
+                Welcome, User
+            </p>
+             <p id="welcomeopen" style="cursor:pointer">
+                ShravanOS
+            </p>
+            <p id="TimeElement">
+                Time
+            </p>
+           
+
+        </div>
+        <div id="desktopApps" class="selected" style="padding-top:64px;padding-left:16px;">
+            <div style="text-align: center; padding:16px; filter:drop-shadow(0 0 8px black); width: fit-content">
+                <img id="cameraopen" src="https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg" style="width:64px; height:64px; cursor: pointer;"/>
+                <p>Camera</p>
+            </div>
+        </div>"
+        <div id="camera" class="windows" style="display:none; width: 400px; height: 300px;">
+            <p style="cursor: pointer; text-align: left;" id="cameraclose">Close</p>
+            
+            <p id="cameraheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;">
+            </p>
+             <button id="startbutton">Allow Camera Access</button>
+            <br>
+            <video id="video" style="width: 600px; height: 200px; " autoplay></video>
+        </div>
+        
+            
+    </body>
+</html>

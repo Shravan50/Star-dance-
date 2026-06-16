@@ -1,0 +1,23 @@
+.body{
+    background-size:cover; 
+    background-image: url("https://media.licdn.com/dms/image/v2/D5612AQEIWS0WrRbn5Q/article-cover_image-shrink_720_1280/B56ZlRboz6KMAI-/0/1758007824691?e=2147483647&v=beta&t=BQxp09GCgRo_vQwWPkQaQyAPDmL9FcDyJG9wxmaglqo"); 
+    color: white;
+    font-family:sans-serif;
+}
+.windows{
+    font-family: cursive; 
+    background-color: black; 
+    width: 250px; 
+    border-radius: 16px; 
+    padding: 30px; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: 
+    translate(-50%, -50%); 
+    text-align: center;
+}
+.close-button{
+    cursor: pointer; 
+    text-align: left;
+}
