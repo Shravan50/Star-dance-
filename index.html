@@ -21,14 +21,15 @@
   document.getElementById('submitbutton').style.display = 'none';
   document.getElementById('nameinput').style.display = 'none';
   document.getElementById('message').style.display='';
+  document.getElementById('welcomemessage').style.display='';
 ">Submit</button>
             <p id="message"style="display:none"> What's up, <span id="nameDisplay"></span></p>
 
             
         </div>
         <div style="display:flex;justify-content: space-between; backdrop-filter: blur(10px);">
-            <p>
-                Welcome, <span id="nameDisplay"></span>
+            <p style="display: none" id="welcomemessage">
+                Welcome, <span id="nameDisplay" ></span>
             </p>
              <p id="welcomeopen" style="cursor:pointer">
                 ShravanOS
