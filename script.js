@@ -144,4 +144,5 @@ var submitButton = document.getElementById("submitbutton");
 submitButton.addEventListener("click", function() {
     var nameInput = document.getElementById("nameinput").value;
     document.getElementById("nameDisplay").innerText = nameInput;
+    document.getElementById("welcomemessage").innerText= "Welcome, "+nameInput+"!";
 });
