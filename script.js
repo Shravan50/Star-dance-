@@ -1,3 +1,4 @@
+let videoCamera = null;
 function updateTime() {
     var CurrentTime= new Date().toLocaleString();
     var timeText = document.querySelector("#TimeElement");
@@ -6,6 +7,9 @@ function updateTime() {
 setInterval(updateTime,1000);
 dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("camera"));
+dragElement(document.getElementById("Notes"));
+dragElement(document.getElementById("calculator"));
+dragElement(document.getElementById("browser"));
 function dragElement(element) {
 
     var initialX=0;
@@ -61,20 +65,83 @@ function ToggleWindows(windowSelector, open, close) {
     });
     closeButton.addEventListener("click", function() {
         closeWindow(window);
-        srcObject = null;
+        stopCamera();
     });
 }
 ToggleWindows("#welcome", "#welcomeopen", "#welcomeclose");
 ToggleWindows("#camera", "#cameraopen", "#cameraclose");
+ToggleWindows("#Notes", "#Notesopen", "#Notesclose");
+ToggleWindows("#calculator","#calculatoropen", "#calculatorclose");
+ToggleWindows("#browser", "#browseropen", "#browserclose");
 var button=document.querySelector("#startbutton")
 
 button.addEventListener("click", function() {
     document.getElementById("startbutton").style.display = "none";
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
+            videoCamera = stream;
             const video = document.getElementById("video");
             video.srcObject = stream;
+           
             
         }
     );
+});
+function stopCamera() {
+    const video = document.getElementById("video");
+    if (videoCamera) {
+        videoCamera.getTracks().forEach(track => track.stop());
+        video.srcObject = null;
+    }
+    if (video) {
+        video.srcObject = null;
+    };
+}
+button.addEventListener("click", function() {
+    document.getElementById("calculatorbutton").style.display = "none";
+    document.getElementById("calculator").style.display = "";
+    
+});
+
+document.getElementById("calculator").style.display = "none"; 
+
+const display = document.getElementById("calculatordisplay");
+const buttons = document.querySelectorAll(".calculator-button");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const value = button.getAttribute("data-value");
+
+        if (value === "=") {
+            
+            try {
+                if (display.value.trim() === "") return;
+                
+                // Using Function instead of eval for basic safety
+                const result = new Function(`return ${display.value}`)();
+                display.value = result;
+            } catch (error) {
+                display.value = "Error";
+            }
+        } else if (button.innerText.toLowerCase() === "AC" || value === "AC") {
+            display.value = "";
+        } else {
+            if (display.value === "Error") {
+                display.value = "";
+            }
+            // Append the clicked button value to the display
+            display.value += value;
+        }
+    });
+});
+
+// Fix the button behavior from your script where clicking start button hid something else
+var calcAppOpen = document.querySelector("#calculatoropen");
+calcAppOpen.addEventListener("click", function() {
+    document.getElementById("calculator").style.display = "";
+});
+var submitButton = document.getElementById("submitbutton");
+submitButton.addEventListener("click", function() {
+    var nameInput = document.getElementById("nameinput").value;
+    document.getElementById("nameDisplay").innerText = nameInput;
 });
