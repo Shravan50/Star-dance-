@@ -40,4 +40,8 @@ To run ShravanOS locally on your machine:
 
 1. Clone this repository:
    ```bash
+<<<<<<< HEAD
    git clone [https://github.com/YOUR_USERNAME/stardance-space-project.git](https://github.com/YOUR_USERNAME/stardance-space-project.git)
+=======
+   git clone [https://github.com/YOUR_USERNAME/stardance-space-project.git](https://github.com/YOUR_USERNAME/stardance-space-project.git)
+>>>>>>> cda96b7cde26f91daf2095ae0480c5d9146aface
