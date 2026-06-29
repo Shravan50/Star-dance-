@@ -33,16 +33,4 @@ As I continue building out this project during the Stardance challenge, my next 
 * [ ] **Persistent Memory:** Integrate `localStorage` so that text in the Notes App saves automatically and stays intact even after refreshing the page.
 * [ ] **NASA Data Integration:** Build a dedicated desktop widget that pulls real-time celestial data or images from NASA's public APIs.
 
----
 
-## 📦 Local Installation
-
-To run ShravanOS locally on your machine:
-
-1. Clone this repository:
-   ```bash
-<<<<<<< HEAD
-   git clone [https://github.com/YOUR_USERNAME/stardance-space-project.git](https://github.com/YOUR_USERNAME/stardance-space-project.git)
-=======
-   git clone [https://github.com/YOUR_USERNAME/stardance-space-project.git](https://github.com/YOUR_USERNAME/stardance-space-project.git)
->>>>>>> cda96b7cde26f91daf2095ae0480c5d9146aface
