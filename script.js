@@ -10,6 +10,7 @@ dragElement(document.getElementById("camera"));
 dragElement(document.getElementById("Notes"));
 dragElement(document.getElementById("calculator"));
 dragElement(document.getElementById("browser"));
+dragElement(document.getElementById("drawingpad"));
 function dragElement(element) {
 
     var initialX=0;
@@ -73,6 +74,7 @@ ToggleWindows("#camera", "#cameraopen", "#cameraclose");
 ToggleWindows("#Notes", "#Notesopen", "#Notesclose");
 ToggleWindows("#calculator","#calculatoropen", "#calculatorclose");
 ToggleWindows("#browser", "#browseropen", "#browserclose");
+ToggleWindows("#drawingpad", "#drawingpadopen", "#drawingpadclose");
 var button=document.querySelector("#startbutton")
 
 button.addEventListener("click", function() {
@@ -97,11 +99,6 @@ function stopCamera() {
         video.srcObject = null;
     };
 }
-button.addEventListener("click", function() {
-    document.getElementById("calculatorbutton").style.display = "none";
-    document.getElementById("calculator").style.display = "";
-    
-});
 
 document.getElementById("calculator").style.display = "none"; 
 
@@ -135,7 +132,6 @@ buttons.forEach(button => {
     });
 });
 
-// Fix the button behavior from your script where clicking start button hid something else
 var calcAppOpen = document.querySelector("#calculatoropen");
 calcAppOpen.addEventListener("click", function() {
     document.getElementById("calculator").style.display = "";
@@ -144,5 +140,35 @@ var submitButton = document.getElementById("submitbutton");
 submitButton.addEventListener("click", function() {
     var nameInput = document.getElementById("nameinput").value;
     document.getElementById("nameDisplay").innerText = nameInput;
-    document.getElementById("welcomemessage").innerText= "Welcome, "+nameInput+"!";
+    document.getElementById("welcomemessage").innerText = "Welcome, "+nameInput+"!";
+});
+
+var drawingPadCanvas = document.getElementById("drawingpadcanvas");
+var drawingPadContext = drawingPadCanvas.getContext("2d");
+var isDrawing = false;
+
+drawingPadContext.strokeStyle = "#00f2fe"; 
+drawingPadContext.lineWidth = 3;
+drawingPadContext.lineCap = "round";
+drawingPadContext.lineJoin = "round";
+
+drawingPadCanvas.addEventListener("mousedown", function(e) {
+    isDrawing = true;
+    drawingPadContext.beginPath();
+    drawingPadContext.moveTo(e.offsetX, e.offsetY);
+});
+
+drawingPadCanvas.addEventListener("mousemove", function(e) {
+    if (isDrawing) {
+        drawingPadContext.lineTo(e.offsetX, e.offsetY);
+        drawingPadContext.stroke();
+    }
+});
+
+drawingPadCanvas.addEventListener("mouseup", function() {
+    isDrawing = false;
+});
+
+drawingPadCanvas.addEventListener("mouseleave", function() {
+    isDrawing = false;
 });
