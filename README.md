@@ -14,6 +14,7 @@ The goal of this project is to master DOM manipulation, event handling, and cust
 * **Notes App:** A clean, workspace-integrated text area for quick scratchpad notation.
 * **Mock Browser:** A stylized dashboard utility mirroring a standard search engine interface.
 * **System Personalization:** Dynamic custom greeting and system state adaptation driven by user-inputted profile metadata.
+* **Drawing Pad** A way to showcase your drawing skills!!
 
 ---
 
