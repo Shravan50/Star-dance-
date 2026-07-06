@@ -48,6 +48,8 @@
 .close-button{
     cursor: pointer; 
     text-align: left;
+    width: fit-content; 
+    display: inline-block;
 }
 #camera {
     display: flex;
