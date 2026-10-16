@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
     <body class="body">
-
+        
         <div id="welcome" class="windows">
             <p class="close-button" id="welcomeclose">Close</p>
             <p id="welcomeheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 8px;"></p>
@@ -15,7 +15,6 @@
             <p id="message"style="display:none"> What's up, <span id="nameDisplay"></span></p> 
 
         </div>
-        
         <div style="display:flex;justify-content: space-between; backdrop-filter: blur(10px);">
             <p style="display: none" id="welcomemessage">
                 Welcome, <span id="nameDisplay" ></span>
@@ -60,17 +59,26 @@
                 <img id="drawingpadopen" src="https://play-lh.googleusercontent.com/RTZ28I0lLnfSNoz2ggB73yt3EyYBuQ4xNj6ubwa5-njbmHw7qxrIwDKQoLi1CtmQp3UEQOe7-8wUDsfItdtOMA" />
                 <p>Drawing Pad</p>
             </div>
+            <!-- NASA Pictures-->
+            <div class="appicons" style="padding-left:16px;">
+                <img id="NASApicturesopen" src="https://www.nasa.gov/sites/default/files/thumbnails/image/nasa-logo-web-rgb.png" />
+                <p>NASA Pictures</p>
+            </div>
+            <div class="appicons" style="padding-left:16px;">
+                <img id="PomodoroTimeropen" src="https://cdn-icons-png.flaticon.com/512/2910/2910762.png" />
+                <p>Pomodoro Timer</p>
 
         </div>
 
 
-        <div id="camera" class="windows" style="display:none; width: 400px; height: 300px;">
+        <div id="camera" class="windows" style="display:none;">
             <p class="close-button" style="cursor: pointer; text-align: left;" id="cameraclose">Close</p>
             <p id="cameraheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;">
             </p>
              <button id="startbutton">Allow Camera Access</button>
             <br>
-            <video id="video" style="width: 600px; height: 200px; " autoplay></video>
+            <video id="video" autoplay playsinline></video>
+            <button id="takepicture">Take A Picture</button>
         </div>
         
     
@@ -81,7 +89,7 @@
         </div>
 
         
-        <div id="calculator" class="windows" style="width: 200px; height: 300px;display:none">
+        <div id="calculator" class="windows" style="display:none">
             <p class="close-button" style="cursor: pointer; text-align: left;" id="calculatorclose">Close</p>
             <p id="calculatorheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;">
             </p>
@@ -107,18 +115,35 @@
             </div> 
         </div> 
         
-        <div id="browser" class="windows" style="display:none;width: 500px; height: 300px;background-color: #f0f0f0;">
+        <div id="browser" class="windows" style="display:none;background-color: #f0f0f0;">
                 <div style="justify-content: space-between;"></div>
                     <p class="close-button" style="cursor: pointer; text-align: left; color:black ;" id="browserclose">Close</p>
                     <p style="color:black">THIS IS A MOCK BROWSER</p>
             <p id="browserheader" style="user-select:none; cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;font-family: Arial, Helvetica, sans-serif;">google.com</p>
-            <img src="https://www.pngall.com/wp-content/uploads/15/Google-Search-Bar-Transparent.png" style="width: 400px; height: auto;transform:translateY(-50px)">
+            <img src="https://www.pngall.com/wp-content/uploads/15/Google-Search-Bar-Transparent.png" class="browser-image">
         </div>
 
-        <div id="drawingpad" class="windows" style="display:none; width: 400px; height: 300px;">
+        <div id="drawingpad" class="windows" style="display:none;">
             <p class="close-button" style="cursor: pointer; text-align: left;" id="drawingpadclose">Close</p>
             <p id="drawingpadheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;"></p>
-            <canvas id="drawingpadcanvas" width="400" height="250" style="border: 1px solid #ccc;"></canvas>
+            <canvas id="drawingpadcanvas" width="400" height="250"></canvas>
+        </div>
+        <div id="NASApictures" class="windows" style="display:none;">
+            <p class="close-button" style="cursor: pointer; text-align: left;" id="NASApicturesclose">Close</p>
+            <p id="NASApicturesheader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;"></p>
+            <img id="NASApicture" src="" style="width: 100%; height: auto; border-radius: 8px;">
+            <button id="NASApicturebutton" class="appicons" style="margin-top: 10px; padding: 5px 10px; border: none; background-color: #333; color: white; border-radius: 4px; cursor: pointer;">Get Random NASA Picture</button>
+        </div>
+         
+        <div id="PomodoroTimer" class="windows" style="display:none;">
+            <p class="close-button" style="cursor: pointer; text-align: left;" id="PomodoroTimerclose">Close</p>
+            <p id="TimerHeader" style="user-select:none;cursor:grab; background-color: #333; padding: 5px; border-radius: 30px;"></p>
+            <p id="TimerDisplay" style="font-size: 24px; text-align: center; margin-top: 20px;">25:00</p>
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <button id="startTimer" style="padding: 5px 10px; border: none; background-color: #333; color: white; border-radius: 4px; cursor: pointer; margin-right: 10px;">Start</button>
+                <button id="pauseTimer" style="padding: 5px 10px; border: none; background-color: #333; color: white; border-radius: 4px; cursor: pointer; margin-right: 10px;">Pause</button>
+                <button id="resetTimer" style="padding: 5px 10px; border: none; background-color: #333; color: white; border-radius: 4px; cursor: pointer;">Reset</button>
+            </div>
         </div>
     </body>
         
